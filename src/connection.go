@@ -17,7 +17,7 @@ func Connection() {
 		"\033[95m",  
 		"\033[96m",  
 	}
-	conexao, err := net.Dial("tcp", "127.0.0.1:8081")
+	conexao, err := net.Dial("tcp", "192.168.1.113:8081")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(3)

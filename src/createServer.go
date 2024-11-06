@@ -6,7 +6,7 @@ import (
 )
 
 func CreateServer() {
-	_, erro1 := net.Dial("tcp", "127.0.0.1:8081")
+	_, erro1 := net.Dial("tcp", "192.168.1.113:8081")
 	if erro1 != nil {
 		go Server()
 	}
