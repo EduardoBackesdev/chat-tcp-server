@@ -1,6 +1,7 @@
 package src
 
 import (
+	"bufio"
 	"fmt"
 	"net"
 	"os"
@@ -28,11 +29,13 @@ func Server() {
 
 	fmt.Println("Conexão aceita...", conexao)
 
-	for{
-		
-
-
-
+	for {
+		mes, err := bufio.NewReader(conexao).ReadString('\n')
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(3)
+		}
+		fmt.Print(mes)
 	}
 
 }

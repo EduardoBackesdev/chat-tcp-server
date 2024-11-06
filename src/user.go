@@ -12,7 +12,7 @@ func User() string {
 	scanner := bufio.NewScanner(os.Stdin)
 	if scanner.Scan() {
 		user := scanner.Text()
-		fmt.Println("Meu nome é: ", user)
+		fmt.Println("Parabéns voce entrou no chat,  ", user)
 	}
 	return user
 }
