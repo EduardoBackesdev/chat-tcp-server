@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	conn.Connection()
+	conn.CreateServer()
 }

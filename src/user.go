@@ -11,8 +11,9 @@ func User() string {
 	fmt.Println("Digite seu nome:")
 	scanner := bufio.NewScanner(os.Stdin)
 	if scanner.Scan() {
-		user := scanner.Text()
-		fmt.Println("Parabéns voce entrou no chat,  ", user)
+		user = scanner.Text()
+		fmt.Println("Parabéns voce entrou no chat, ", user)
+		fmt.Println("Digite sua mensagem:")
 	}
 	return user
 }
