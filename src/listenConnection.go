@@ -22,6 +22,4 @@ func ListenConnection(ch chan net.Conn) {
 	ch <- conexao
 	defer ln.Close()
 	}
-
-	
 }
