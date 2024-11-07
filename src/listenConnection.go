@@ -20,6 +20,6 @@ func ListenConnection(ch chan net.Conn) {
 		os.Exit(3)
 	}
 	ch <- conexao
-	defer ln.Close()
 	}
+	
 }
