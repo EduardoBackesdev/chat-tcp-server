@@ -3,6 +3,7 @@ package src
 import (
 	"fmt"
 	"net"
+	"time"
 )
 
 func Server() {
@@ -10,6 +11,12 @@ func Server() {
 	fmt.Println("Servidor criado!")
 	go ListenConnection(ch)
 	fmt.Println("Conexão aceita...")
-	conexao := <-ch
-	go Chat(conexao)
+	for {
+		select {
+		case conexao := <-ch:
+			go Chat(conexao)
+		default:
+			time.Sleep(100 * time.Millisecond)
+		}
+	}
 }

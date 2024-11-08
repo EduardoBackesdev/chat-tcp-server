@@ -16,7 +16,7 @@ func Connection() {
 	// cores := []interface{}{
 	// 	red,green,blue,yellow,white,
 	// }
-	conexao, err := net.Dial("tcp", "192.168.1.113:8081")
+	conexao, err := net.Dial("tcp", "192.168.0.105:8081")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(3)
