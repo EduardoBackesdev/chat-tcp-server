@@ -7,6 +7,7 @@ import (
 )
 
 func Server() {
+
 	ch := make(chan net.Conn, 5)
 	fmt.Println("Servidor criado!")
 	go ListenConnection(ch)
