@@ -14,6 +14,6 @@ func Chat(ch net.Conn) {
 			fmt.Println(err)
 			os.Exit(3)
 		}
-		fmt.Print("CHAT GLOBAL: ",mes)
+		fmt.Print("CHAT GLOBAL: ", mes)
 	}
 }
