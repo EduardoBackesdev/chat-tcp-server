@@ -16,12 +16,22 @@ func Server() {
 	for {
 		select {
 		case conexao := <-ch:
-			mes, err := bufio.NewReader(conexao).ReadString('\n')
-			if err != nil {
-				fmt.Println(err)
+			// mes, err := bufio.NewReader(conexao).ReadString('\n')
+			// if err != nil {
+			// 	fmt.Println(err)
+			// 	os.Exit(3)
+			// }
+			leitor := bufio.NewReader(os.Stdin)
+			texto, textoErr := leitor.ReadString('\n')
+			if textoErr != nil {
+				fmt.Println(textoErr)
 				os.Exit(3)
 			}
-			Hub(mes, conexao)
+			_, err := fmt.Fprintf(conexao, ": "+texto+"\n")
+			if err != nil {
+				fmt.Println("Error: ", err)
+			}
+			Hub(texto+"\n", conexao)
 		default:
 			time.Sleep(100 * time.Millisecond)
 		}
