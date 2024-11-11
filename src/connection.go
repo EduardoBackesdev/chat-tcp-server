@@ -26,16 +26,13 @@ func Connection(chMes chan string) {
 	// 	nome = User()
 	// }
 	// ran := cores[rand.IntN(len(cores))]
-	for {
-		leitor := bufio.NewReader(os.Stdin)
-		texto, textoErr := leitor.ReadString('\n')
-		if textoErr != nil {
-			fmt.Println(textoErr)
-			os.Exit(3)
-		}
-
-		fmt.Fprintf(conexao, texto+"\n")
-		fmt.Println("")
-		chMes <- texto + "\n"
+	fmt.Println("Digite sua Mensagem: ")
+	leitor := bufio.NewReader(os.Stdin)
+	texto, textoErr := leitor.ReadString('\n')
+	if textoErr != nil {
+		fmt.Println(textoErr)
+		os.Exit(3)
 	}
+	fmt.Fprintf(conexao, texto+"\n")
+	chMes <- texto + "\n"
 }

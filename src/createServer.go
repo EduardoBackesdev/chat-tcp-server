@@ -10,6 +10,5 @@ func CreateServer() {
 	if erro1 != nil {
 		go Server()
 	}
-	time.Sleep(5 * time.Second)
-	//Connection()
+	time.Sleep(100 * time.Second)
 }

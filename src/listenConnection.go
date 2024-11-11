@@ -19,8 +19,6 @@ func ListenConnection(ch chan net.Conn) {
 			fmt.Println(erro2)
 			os.Exit(3)
 		}
-		fmt.Println("Conexão aceita...")
-		fmt.Println(ch)
 		ch <- conexao
 	}
 

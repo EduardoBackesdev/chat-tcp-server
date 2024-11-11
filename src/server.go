@@ -3,16 +3,21 @@ package src
 import (
 	"fmt"
 	"net"
+	"time"
 )
 
 func Server() {
+	fmt.Println("Servidor criado!")
 	ch := make(chan net.Conn, 5)
 	chMes := make(chan string)
-	fmt.Println("Servidor criado!")
 	go ListenConnection(ch)
-	go Connection(chMes)
+	time.Sleep(5 * time.Second)
 	for {
-
+		go Connection(chMes)
+		mes := <-chMes
+		con := <-ch
+		Hub(mes, con)
+		//Hub(mes, conn)
 		// fmt.Println("Entrou para digitar")
 		// conexao := <-ch
 		// leitor := bufio.NewReader(os.Stdin)

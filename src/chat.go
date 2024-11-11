@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func Chat(ch net.Conn) {
+func Chat(ch net.Conn, mes string) {
 	for {
 		mes, err := bufio.NewReader(ch).ReadString('\n')
 		if err != nil {
