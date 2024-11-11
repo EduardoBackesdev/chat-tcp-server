@@ -13,13 +13,15 @@ func ListenConnection(ch chan net.Conn) {
 		os.Exit(3)
 	}
 	for {
-	// aceitando conexões
-	conexao, erro2 := ln.Accept()
-	if erro2 != nil {
-		fmt.Println(erro2)
-		os.Exit(3)
+		// aceitando conexões
+		conexao, erro2 := ln.Accept()
+		if erro2 != nil {
+			fmt.Println(erro2)
+			os.Exit(3)
+		}
+		fmt.Println("Conexão aceita...")
+		fmt.Println(ch)
+		ch <- conexao
 	}
-	ch <- conexao
-	}
-	
+
 }

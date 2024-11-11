@@ -11,5 +11,5 @@ func CreateServer() {
 		go Server()
 	}
 	time.Sleep(5 * time.Second)
-	Connection()
+	//Connection()
 }
