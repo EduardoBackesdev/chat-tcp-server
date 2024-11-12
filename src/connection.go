@@ -26,6 +26,7 @@ func Connection(chMes chan string) {
 	// 	nome = User()
 	// }
 	// ran := cores[rand.IntN(len(cores))]
+	go ListenChat(conexao)
 	fmt.Println("Digite sua Mensagem: ")
 	leitor := bufio.NewReader(os.Stdin)
 	texto, textoErr := leitor.ReadString('\n')

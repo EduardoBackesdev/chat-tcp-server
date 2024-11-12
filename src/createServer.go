@@ -10,5 +10,8 @@ func CreateServer() {
 	if erro1 != nil {
 		go Server()
 	}
-	time.Sleep(100 * time.Second)
+	for {
+		// Codigo sempre rodando
+		time.Sleep(2 * time.Second)
+	}
 }
