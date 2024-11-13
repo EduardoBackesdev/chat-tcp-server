@@ -14,4 +14,5 @@ func CreateServer() {
 		// Codigo sempre rodando
 		time.Sleep(2 * time.Second)
 	}
+	
 }
