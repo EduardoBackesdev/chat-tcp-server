@@ -1,6 +1,7 @@
 package src
 
 import (
+	"fmt"
 	"net"
 	"time"
 )
@@ -9,10 +10,19 @@ func CreateServer() {
 	_, erro1 := net.Dial("tcp", "192.168.0.105:8081")
 	if erro1 != nil {
 		go Server()
+		time.Sleep(5 * time.Second)
 	}
+	ch := make(chan net.Conn, 5)
+	chMes := make(chan string)
+	go ListenConnection(ch)
+	time.Sleep(5 * time.Second)
 	for {
-		// Codigo sempre rodando
-		time.Sleep(2 * time.Second)
+		go Connection(chMes)
+		mes := <-chMes
+		fmt.Println(mes)
+		con := <-ch
+		fmt.Println(con)
+		Hub(mes)
 	}
-	
+
 }
