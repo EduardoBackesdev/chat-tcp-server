@@ -1,19 +1,22 @@
 package src
 
 import (
+	"bufio"
 	"fmt"
 	"net"
+	"os"
 )
 
 func ListenChat(a net.Conn) {
-	buf := make([]byte, 1024)
 	for {
-		n, err := a.Read(buf)
-		if err != nil {
-			fmt.Println(err)
-			return
+		// Assim que receber o controle de nova linha (\n), processa a mensagem recebida
+		mensagem, erro3 := bufio.NewReader(a).ReadString('\n')
+		if erro3 != nil {
+			fmt.Println(erro3)
+			os.Exit(3)
 		}
-		msg := string(buf[:n])
-		fmt.Printf("Received message: %s\n", msg)
+
+		// escreve no terminal a mensagem recebida
+		fmt.Print("Mensagem recebida:", string(mensagem))
 	}
 }

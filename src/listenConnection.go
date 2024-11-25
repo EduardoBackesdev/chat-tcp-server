@@ -6,7 +6,8 @@ import (
 	"os"
 )
 
-func ListenConnection(ch chan net.Conn) {
+func ListenConnection() {
+	fmt.Println("Aguardando conexões")
 	ln, erro1 := net.Listen("tcp", ":8081")
 	if erro1 != nil {
 		fmt.Println(erro1)
@@ -14,15 +15,12 @@ func ListenConnection(ch chan net.Conn) {
 	}
 	for {
 		// aceitando conexões
-		fmt.Println("conexao")
 		conexao, erro2 := ln.Accept()
 		if erro2 != nil {
 			fmt.Println(erro2)
 			os.Exit(3)
 		}
-		fmt.Println("conexao 2")
 		fmt.Println(conexao)
-		ch <- conexao
 	}
 
 }
