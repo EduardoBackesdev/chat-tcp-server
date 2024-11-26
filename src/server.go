@@ -2,11 +2,15 @@ package src
 
 import (
 	"fmt"
+	"time"
 )
 
 func Server() {
 	fmt.Println("Servidor criado!")
+	go ListenConnection()
+	go Get_user()
+	go ListenChat()
 	for {
-		go ListenConnection()
+		time.Sleep(1 * time.Second)
 	}
 }
